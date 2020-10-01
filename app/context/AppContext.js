@@ -4,13 +4,13 @@ import { useMediaPredicate } from 'react-media-hook'
 const AppContext = createContext()
 const AppProvider = props => {
   const preferredTheme = useMediaPredicate('(prefers-color-scheme: dark)') ? 'dark' : 'light'
-  const [appData, setApp] = useState({
+  const [appData, setAppData] = useState({
     navOpen: false,
-    toggleSidenav: value => setApp(data => (
+    toggleSidenav: value => setAppData(data => (
       { ...data, navOpen: value }
     )),
     themeMode: localStorage.getItem('kr_space-x_theme') || preferredTheme,
-    changeTheme: mode => setApp(data => (
+    changeTheme: mode => setAppData(data => (
       {...data, themeMode: mode }
     ))
   })
